@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
+<head>
 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <title>Anticongelante Coolelf</title>
-        
-        <link rel="stylesheet" href="estilo.css">
-        
-        </head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Anticongelante Coolelf</title>
+
+<link rel="stylesheet" href="estilo.css">
+
+</head>
 
 <body>
 
@@ -36,15 +36,13 @@
 
 </section>
 
-
-<section class="producto">
+<section class="producto" id="producto">
 
 <img src="images.jpg">
 
 <div class="info">
 
 <h2>Anticongelante Coolelf 4L</h2>
-<section class="producto" id="producto"></section>
 
 <p class="precio">$249 MXN</p>
 
@@ -56,16 +54,17 @@
 </ul>
 
 <label>Cantidad</label>
-<input type="number" value="1">
+<input type="number" value="1" min="1">
 
 <br><br>
 
-<button class="carrito" onclick="addToCart()">AÑADIR AL CARRITO</button>
+<button class="carrito" onclick="addToCart()">
+AÑADIR AL CARRITO
+</button>
 
 </div>
 
 </section>
-
 
 <section class="iconos">
 
@@ -86,78 +85,98 @@
 
 </section>
 
+<footer id="contacto">
 
-<footer>
+<p>© 2026 Coolelf Anticongelante</p>
 
-  <p>© 2026 Coolelf Anticongelante</p>
-  
-  <div class="redes">
-    <a href="https://www.instagram.com/totalenergies_coolelf_?igsh=MWFnZDFjMzl2aXgxMA%3D%3D&utm_source=qr" target="_blank" class="insta">
-      <img src="logoig-removebg-preview.png" alt="Instagram">
-      <span>Instagram</span>
-    </a>
-    <section class="contacto" id="contacto"></section>
+<div class="redes">
 
-    <a href="https://wa.me/5637420561" target="_blank" class="whatsapp">
-      <img src="logowhatss.png" alt="WhatsApp">
-      <span>WhatsApp</span>
-    </a>
-  </div>
-  
-  </footer>
+<a href="https://www.instagram.com/totalenergies_coolelf_?igsh=MWFnZDFjMzl2aXgxMA%3D%3D&utm_source=qr" target="_blank" class="insta">
+<img src="logoig-removebg-preview.png" alt="Instagram">
+<span>Instagram</span>
+</a>
+
+<a href="https://wa.me/5637420561" target="_blank" class="whatsapp">
+<img src="logowhatss.png" alt="WhatsApp">
+<span>WhatsApp</span>
+</a>
+
+</div>
+
+</footer>
 
 <div id="cart" class="cart">
 
-    <div class="cart-header">
-      <h3>Tu carrito</h3>
-      <span onclick="toggleCart()">✖</span>
-    </div>
-  
-    <div id="cart-content">
-      <p class="empty">Tu carrito está vacío</p>
-    </div>
-  
-    <div class="cart-footer">
-      <h4>Total: $<span id="total">0</span> MXN</h4>
-      <button class="checkout">FINALIZAR COMPRA</button>
-    </div>
-  
-  </div>
+<div class="cart-header">
+<h3>Tu carrito</h3>
+<span onclick="toggleCart()">✖</span>
+</div>
 
-  <script>
+<div id="cart-content">
+<p class="empty">Tu carrito está vacío</p>
+</div>
 
-    let precio = 249;
-    let total = 0;
-    
-    function toggleCart(){
-    document.getElementById("cart").classList.toggle("active");
-    }
-    
-    function addToCart(){
-    
-    let cantidad = parseInt(document.querySelector("input").value);
-    
-    let contenido = document.getElementById("cart-content");
-    
-    contenido.innerHTML = `
-    <div class="cart-item">
-      <img src="images.jpg" class="cart-img">
-      
-      <div>
-        <p>Anticongelante x${cantidad}</p>
-        <p>$${precio * cantidad} MXN</p>
-      </div>
-    </div>
-    `;
-    
-    total = precio * cantidad;
-    
-    document.getElementById("total").innerText = total;
-    
-    toggleCart();
-    }
-    
-    </script>
+<div class="cart-footer">
+<h4>Total: $<span id="total">0</span> MXN</h4>
+
+<button class="checkout" onclick="finalizarCompra()">
+FINALIZAR COMPRA
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+let precio = 249;
+let total = 0;
+
+function toggleCart(){
+document.getElementById("cart").classList.toggle("active");
+}
+
+function addToCart(){
+
+let cantidad = parseInt(document.querySelector("input").value);
+
+let contenido = document.getElementById("cart-content");
+
+contenido.innerHTML = `
+<div class="cart-item">
+
+<img src="images.jpg" class="cart-img">
+
+<div>
+<p>Anticongelante x${cantidad}</p>
+<p>$${precio * cantidad} MXN</p>
+</div>
+
+</div>
+`;
+
+total = precio * cantidad;
+
+document.getElementById("total").innerText = total;
+
+toggleCart();
+
+}
+
+function finalizarCompra(){
+
+let mensaje = "Hola quiero hacer la compra de anticongelante Coolelf";
+
+let numero = "525637420561";
+
+let url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+
+window.open(url, "_blank");
+
+}
+
+</script>
 
 </body>
+</html>
 </html>
