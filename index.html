@@ -21,7 +21,11 @@
 <a href="#">Inicio</a>
 <a href="#producto">Producto</a>
 <a href="#contacto">Contacto</a>
-<button class="cart-btn" onclick="toggleCart()">🛒</button>
+
+<button class="cart-btn" onclick="toggleCart()">
+🛒
+</button>
+
 </nav>
 
 </header>
@@ -32,13 +36,15 @@
 
 <p>¡PROTEGE TU MOTOR ESTE INVIERNO!</p>
 
-<a href="quienes.somos.html" class="boton">CONOCENOS MAS</a>
+<a href="quienes.somos.html" class="boton">
+CONOCENOS MAS
+</a>
 
 </section>
 
 <section class="producto" id="producto">
 
-<img src="images.jpg">
+<img src="images.jpg" alt="Anticongelante">
 
 <div class="info">
 
@@ -54,7 +60,8 @@
 </ul>
 
 <label>Cantidad</label>
-<input type="number" value="1" min="1">
+
+<input type="number" value="1" min="1" id="cantidad">
 
 <br><br>
 
@@ -92,13 +99,19 @@ AÑADIR AL CARRITO
 <div class="redes">
 
 <a href="https://www.instagram.com/totalenergies_coolelf_?igsh=MWFnZDFjMzl2aXgxMA%3D%3D&utm_source=qr" target="_blank" class="insta">
+
 <img src="logoig-removebg-preview.png" alt="Instagram">
+
 <span>Instagram</span>
+
 </a>
 
 <a href="https://wa.me/5637420561" target="_blank" class="whatsapp">
+
 <img src="logowhatss.png" alt="WhatsApp">
+
 <span>WhatsApp</span>
+
 </a>
 
 </div>
@@ -108,19 +121,27 @@ AÑADIR AL CARRITO
 <div id="cart" class="cart">
 
 <div class="cart-header">
+
 <h3>Tu carrito</h3>
+
 <span onclick="toggleCart()">✖</span>
+
 </div>
 
 <div id="cart-content">
+
 <p class="empty">Tu carrito está vacío</p>
+
 </div>
 
 <div class="cart-footer">
+
 <h4>Total: $<span id="total">0</span> MXN</h4>
 
 <button class="checkout" onclick="finalizarCompra()">
+
 FINALIZAR COMPRA
+
 </button>
 
 </div>
@@ -133,26 +154,33 @@ let precio = 249;
 let total = 0;
 
 function toggleCart(){
+
 document.getElementById("cart").classList.toggle("active");
+
 }
 
 function addToCart(){
 
-let cantidad = parseInt(document.querySelector("input").value);
+let cantidad = parseInt(document.getElementById("cantidad").value);
 
 let contenido = document.getElementById("cart-content");
 
 contenido.innerHTML = `
+
 <div class="cart-item">
 
 <img src="images.jpg" class="cart-img">
 
 <div>
+
 <p>Anticongelante x${cantidad}</p>
+
 <p>$${precio * cantidad} MXN</p>
+
 </div>
 
 </div>
+
 `;
 
 total = precio * cantidad;
@@ -165,7 +193,11 @@ toggleCart();
 
 function finalizarCompra(){
 
-let mensaje = "Hola quiero hacer la compra de anticongelante Coolelf";
+let cantidad = parseInt(document.getElementById("cantidad").value);
+
+let totalCompra = precio * cantidad;
+
+let mensaje = `Hola quiero hacer la compra de ${cantidad} anticongelante(s) Coolelf. Total: $${totalCompra} MXN`;
 
 let numero = "525637420561";
 
@@ -178,5 +210,4 @@ window.open(url, "_blank");
 </script>
 
 </body>
-</html>
 </html>
